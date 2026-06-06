@@ -15,6 +15,7 @@ import { Toolbar } from "./toolbar/index.js";
 import { ContextMenu } from "./context-menu.js";
 import { EditPanel } from "./edit-panel/index.js";
 import { ToolbarMenu } from "./toolbar/toolbar-menu.js";
+import { ElementListPanel } from "./element-list-panel.js";
 
 export const ReactGrabRenderer: Component<ReactGrabRendererProps> = (props) => {
   return (
@@ -49,6 +50,7 @@ export const ReactGrabRenderer: Component<ReactGrabRendererProps> = (props) => {
           "box-shadow": `inset 0 0 ${FROZEN_GLOW_EDGE_PX}px ${FROZEN_GLOW_COLOR}`,
         }}
       />
+      <ElementListPanel active={props.isActive && !props.isPromptMode} />
       <Show when={props.selectionLabelVisible && (props.frozenLabelEntries?.length ?? 0) > 0}>
         <Index each={props.frozenLabelEntries ?? []}>
           {(entry, entryIndex) => (
